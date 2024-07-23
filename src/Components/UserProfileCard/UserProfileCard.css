@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 10px;
+  background-color: #f1f1f1;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 30%;
+  padding: 0 50px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  border-radius: 10px;
+  height: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  padding: 0px;
+  background-color: white;
+}
+
+img {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.container {
+  line-height: 30px;
+  padding: 2px 30px;
+}
+
+.profile-button a {
+  padding: 0 34px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  color: gray;
+  border: 2px solid black;
+}
+
+.profile-title {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.profile-description {
+  font-weight: 500;
+  font-size: 14px;
+  color: gray;
+}
