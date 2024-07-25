@@ -3,7 +3,7 @@
 }
 
 body {
-  overflow: hidden;
+  overflow: hidden; /* Prevent scrolling */
   font-family: Arial, Helvetica, sans-serif; /* Set the font for the entire document */
   padding-top: 10px; /* Add padding to the top of the body */
   background-color: #f1f1f1; /* Set a light grey background color for the body */
