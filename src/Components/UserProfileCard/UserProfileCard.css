@@ -1,83 +1,100 @@
 * {
-  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  box-sizing: border-box;
 }
 
 body {
-  overflow: hidden; /* Prevent scrolling */
-  font-family: Arial, Helvetica, sans-serif; /* Set the font for the entire document */
-  padding-top: 10px; /* Add padding to the top of the body */
-  background-color: #f1f1f1; /* Set a light grey background color for the body */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 10px;
+  background-color: #f1f1f1;
 }
 
-/* Float four columns side by side */
+/* Float columns side by side */
 .column {
-  float: left; /* Float the columns to the left */
-  width: 30%; /* Set the width of each column */
-  padding: 0 50px; /* Add padding to the left and right of each column */
+  float: left;
+  width: 100%; /* Full width on small screens */
+  padding: 5rem;
+}
+
+/* Responsive layout - makes the four columns stack on top of each other instead of next to each other on smaller screens */
+@media screen and (min-width: 600px) {
+  .column {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .column {
+    width: 33.3333%;
+  }
 }
 
 /* Remove extra left and right margins, due to padding */
 .row {
-  margin: 0 -5px; /* Add negative margins to counteract the padding on the columns */
+  margin: 0 -1rem; /* Adjusted for smaller padding */
 }
 
 /* Clear floats after the columns */
-.row:after {
-  content: ""; /* Add a blank content to the row */
-  display: table; /* Change display to table to help clear floats */
-  clear: both; /* Clear both left and right floats */
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%; /* Set columns to 100% width on small screens */
-    display: block; /* Change columns to block elements */
-    margin-bottom: 20px; /* Add bottom margin to separate the columns */
-  }
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Style the counter cards */
 .card {
-  border-radius: 10px; /* Round the corners of the cards */
-  height: 350px; /* Set the height of the cards */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); /* Add a shadow to the cards */
-  padding: 0px; /* Remove padding inside the cards */
-  background-color: white; /* Set the background color of the cards to white */
+  border-radius: 10px;
+  height: auto; /* Height set to auto for better responsiveness */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  background-color: white;
+  overflow: hidden; /* Ensure content doesn't overflow card */
+  transition: transform 0.4s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.2);
 }
 
 img {
   width: 100%; /* Make images take up the full width of their container */
-  border-top-right-radius: 10px; /* Round the top-right corner of images */
-  border-top-left-radius: 10px; /* Round the top-left corner of images */
-  margin-bottom: 20px; /* Add margin below the images */
+  height: auto; /* Maintain aspect ratio */
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  display: block; /* Remove bottom spacing */
 }
 
 .container {
-  line-height: 30px; /* Set the line height for text inside the container */
-  padding: 2px 30px; /* Add padding to the container */
+  line-height: 1.5;
+  padding: 1rem;
 }
 
 .profile-button a {
-  padding: 0 34px; /* Add padding inside the button */
-  text-align: center; /* Center-align the text inside the button */
-  text-decoration: none; /* Remove underline from the link */
-  margin: 4px 2px; /* Add margin around the button */
-  transition-duration: 0.4s; /* Set the transition duration for hover effects */
-  cursor: pointer; /* Change the cursor to a pointer when hovering */
-  display: inline-block; /* Display the button as an inline-block element */
-  font-size: 16px; /* Set the font size for the button text */
-  color: gray; /* Set the text color for the button */
-  border: 2px solid black; /* Add a black border to the button */
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  margin: 1rem 0.5rem;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  color: gray;
+  border: 2px solid black;
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.profile-button:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .profile-title {
-  font-weight: bolder; /* Make the title text bold */
-  font-size: larger; /* Increase the font size of the title */
+  font-weight: bolder;
+  font-size: 1.2em;
 }
 
 .profile-description {
-  font-weight: 500; /* Set the font weight for the description text */
-  font-size: 14px; /* Set the font size for the description text */
-  color: gray; /* Set the text color for the description */
+  font-weight: 500;
+  font-size: 1rem;
+  color: gray;
 }
